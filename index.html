@@ -2,27 +2,23 @@
 <html ng-app>
 <head>
     <title>Hello Angular!</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
     <script type='text/javascript'>//<![CDATA[ 
-
-      function HelloController($scope) {
+      function MainController($scope) {
         $scope.greeting = function() {
-            var name = $scope.name;
-            if (name) {
-                return "Hello " + name + "!";
-            } else {
-                return "Please enter your name ...";
-            }
+          if (!$scope.name) {
+            return "Please enter your name";
+          }
+          return "Hello "+$scope.name;
         }
       }
-
       //]]>  
       </script>
 </head>
-<body>
-<div ng-controller="HelloController">    
+<body ng-controller="MainController">
+<div>    
 <h1>Hello Angular!</h1>
-<p>Your name: <input type="text" placeholder="Enter your name" ng-model="name"></p>
+<p>Your name: <input type="text" placeholder="Enter your name"ng-model="name"></p>
 <hr>
 <p>{{greeting()}}</p>
 <div>
