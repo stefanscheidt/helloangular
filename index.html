@@ -1,26 +1,26 @@
 <!DOCTYPE html>       
-<html ng-app>
+<html ng-app="app">
 <head>
     <title>Hello Angular!</title>
     <script type="text/javascript" src="angular.js"></script>
-    <script type='text/javascript'>//<![CDATA[ 
-      function AppController($scope) {
-        $scope.greeting = function() {
-          if (!$scope.username) {
-            return "Please enter your name";
-          }
-          return "Hello " + $scope.username + "!";
-        }
-      }
-      //]]>  
-      </script>
+    <script type="text/javascript">//<![CDATA[
+        angular.module('app', [])
+            .controller('AppController', ['$scope', function($scope) {
+                $scope.greet = function() {
+                    if (!$scope.username) {
+                        return "Please enter your name.";
+                    }
+                    return "Hello " + $scope.username + "!";
+                }
+            }]);
+      //]]></script>
 </head>
-<body ng-controller="AppController">
-<div>    
+<body>
+<div ng-controller="AppController">    
 <h1>Hello Angular!</h1>
 <p>Your name: <input type="text" placeholder="Enter your name" ng-model="username"></p>
 <hr>
-<p>{{greeting()}}</p>
+<p>{{greet()}}</p>
 <div>
 </body>
 </html>
