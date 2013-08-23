@@ -4,7 +4,7 @@
     <title>Hello Angular!</title>
     <script type="text/javascript" src="angular.js"></script>
     <script type='text/javascript'>//<![CDATA[ 
-      function MainController($scope) {
+      function AppController($scope) {
         $scope.greeting = function() {
           if (!$scope.username) {
             return "Please enter your name";
@@ -15,7 +15,7 @@
       //]]>  
       </script>
 </head>
-<body ng-controller="MainController">
+<body ng-controller="AppController">
 <div>    
 <h1>Hello Angular!</h1>
 <p>Your name: <input type="text" placeholder="Enter your name" ng-model="username"></p>
